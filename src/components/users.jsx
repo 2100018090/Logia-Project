@@ -9,7 +9,7 @@ const Users = () => {
   const [keyword, setKeyword] = useState("");
 
   const getUsers = () => {
-    fetch(`${process.env.REACT_APP_API_URI}/users`, {
+    fetch(`https://mpti-proyek.et.r.appspot.com/users`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,

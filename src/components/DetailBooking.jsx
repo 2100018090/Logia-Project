@@ -7,7 +7,7 @@ const DetailBooking = () => {
   const { id } = useParams();
 
   const getBookingById = async () => {
-    const response = await fetch(`${window.env.REACT_API_URI}/booking/id/${id}`, {
+    const response = await fetch(`https://mpti-proyek.et.r.appspot.com/booking/id/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,

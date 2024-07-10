@@ -17,7 +17,7 @@ const PaketPsikolog = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URI}/books/tambah`, {
+      const response = await fetch(`https://mpti-proyek.et.r.appspot.com/books/tambah`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

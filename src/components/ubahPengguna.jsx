@@ -38,7 +38,7 @@ const UbahPengguna = () => {
       body: JSON.stringify(data),
     };
     const response = await fetch(
-      `${process.env.REACT_APP_API_URI}/booking/ubah/${id}`,
+      `https://mpti-proyek.et.r.appspot.com/booking/ubah/${id}`,
       requestOptions
     );
     const booking = await response.json();

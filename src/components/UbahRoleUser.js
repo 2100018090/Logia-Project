@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Navbar from "./navbar";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -27,28 +27,25 @@ const UbahRoleUser = () => {
       `${process.env.REACT_APP_API_URI}/ubahRoleUser/${id}`,
       requestOptions
     );
-    // console.log(response);
     const success = await response.json();
-    // console.log(typeof success.modifiedCount);
+
     if (success.modifiedCount === 1) {
       navigate("/users");
       Swal.fire({
         icon: "success",
-        type: "success",
         title: "Role User Berhasil Diubah",
       });
     } else {
       Swal.fire({
         icon: "warning",
-        type: "warning",
         title: "Role User Gagal Diubah",
       });
     }
   };
 
-  const getUserById = async () => {
+  const getUserById = useCallback(async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_URI}/users/${id}`,
+      `https://mpti-proyek.et.r.appspot.com/users/${id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -60,18 +57,14 @@ const UbahRoleUser = () => {
     setNamaUser(user.nama);
     setEmailUser(user.email);
     setRoleUser(user.role);
-  };
+  }, [id]); // Menambahkan id ke dalam array dependencies useCallback
 
   useEffect(() => {
-    getUserById();
-    localStorage.getItem("userLogin");
-    localStorage.getItem("token");
-  }, []);
+    getUserById(); // Menggunakan getUserById di dalam useEffect
+  }, [getUserById]); // Menambahkan getUserById ke dalam array dependencies useEffect
 
   const title = "Ubah Role User";
-  // if (id === "*") {
-  //   return <Navigate to={"/users"} />;
-  // }
+
   return (
     <div>
       <Navbar />
@@ -112,14 +105,12 @@ const UbahRoleUser = () => {
                     <select
                       className="form-select"
                       name="role"
+                      value={roleUser}
                       onChange={(event) => setRoleUser(event.target.value)}
                     >
-                      <option selected value={roleUser}>
-                        {roleUser}
-                      </option>
-                      <option defaultValue={"1"}>1</option>
-                      <option defaultValue={"2"}>2</option>
-                      <option defaultValue={"3"}>3</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
                     </select>
                   </div>
                   <div className="mb-3">

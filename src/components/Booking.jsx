@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./navbar";
 import Swal from "sweetalert2";
-// import ButtonAdd from "./auth-content/ButtonAdd";
 import Aksi from "./auth-content/Aksi";
-// import { Header } from "./header";
-// import ProtectedContent from "./ProtectedContent";
 
 const Booking = () => {
-  let [booking, setBooks] = useState([]);
-  const [keyword, setKeyword] = useState("");
+  const [booking, setBooks] = useState([]);
   const [sortJudul] = useState("");
 
-
-
   const getAllSemuaBooking = async () => {
-
     const response = await fetch(`${process.env.REACT_APP_API_URI}/booking`, {
       headers: {
-        "Content-Type": "application/json", 
+        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
@@ -44,8 +37,6 @@ const Booking = () => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }).then(async (res) => {
-          // const booking = await res.json();
-          // console.log(booking);
           Swal.fire("Dihapus!", "Pengguna telah dihapus.", "Berhasil");
           getAllSemuaBooking();
         });
@@ -53,105 +44,44 @@ const Booking = () => {
     });
   };
 
-  // const onSearch = async () => {
-  //   const response = await fetch(
-  //     `${process.env.REACT_APP_API_URI}/booking/search?namaBuku=${keyword}`,
-  //     {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //       },
-  //     }
-  //   );
-  //   const result = await response.json();
-  //   setBooks(result);
-  // };
-
   useEffect(() => {
     localStorage.getItem("userLogin");
     localStorage.getItem("token");
-    if (keyword === "") {
-      getAllSemuaBooking();
-    } else {
-      // onSearch();
-    }
-  }, [keyword, sortJudul]);
+    getAllSemuaBooking();
+  }, [sortJudul]);
 
-  // const title = "Daftar Buku";
-  // const onSorting = () => {
   if (sortJudul === "A-Z") {
-    booking = booking.sort((a, b) => a.namaBuku.localeCompare(b.namaBuku));
+    booking.sort((a, b) => a.nama.localeCompare(b.nama));
   } else if (sortJudul === "Z-A") {
-    booking = booking.sort((a, b) => b.namaBuku.localeCompare(a.namaBuku));
+    booking.sort((a, b) => b.nama.localeCompare(a.nama));
   } else {
-    booking = booking.sort();
+    booking.sort();
   }
-  // };
 
-  // console.log(process.env);
   return (
     <div>
       <Navbar />
-      <section id="contact" class="contact">
-        <div class="container">
-
-          <div class="section-title" data-aos="fade-up">
+      <section id="contact" className="contact">
+        <div className="container">
+          <div className="section-title" data-aos="fade-up">
             <h2>Riwayat</h2>
           </div>
-        <div className="container p-5 mb-4 ">
-          {/* <Header title={title} /> */}
-          <div className="bg-light rounded-3">
-            <div className="row mx-5">
-              {/* <div className="col-6">
-                <ButtonAdd path="/tambah" />
-              </div> */}
-            </div>
-            <div className="col-lg-6 my-3 justify-content-center d-block">
-              <div className="input-group mb-3 ">
-                <input
-                  type="text"
-                  className="form-control mx-5"
-                  placeholder="cari nama booking ..."
-                  aria-label="cari nama booking"
-                  value={keyword}
-                  onChange={(event) => setKeyword(event.target.value)}
-                />
-              </div>
-            </div>
-            <div className="table table-responsive p-5 mb-4 bg-blue-200 rounded-3">
-              <table className="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">No</th>
-                    {/* <th scope="col">
-                      Riwayat Booking
-                      <select
-                        className="form-select-sm float-end"
-                        aria-label="Default select example"
-                        name="sortJudul"
-                        onChange={(event) => {
-                          setSortJudul(event.target.value);
-                        }}
-                      >
-                        <option selected value={sortJudul}>
-                          {sortJudul}
-                        </option>
-                        <option value={"none"}>none</option>
-                        <option value={"A-Z"}>A-Z</option>
-                        <option value={"Z-A"}>Z-A</option>
-                      </select>
-                    </th> */}
-                    <th scope="col">Nama</th>
-                    <th scope="col">TglBooking</th>
-                    <th scope="col">Layanan</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Aksi</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {booking.map((booking, index) => {
-                    return (
+          <div className="container p-5 mb-4">
+            <div className="bg-light rounded-3">
+              <div className="table table-responsive p-5 mb-4 bg-blue-200 rounded-3">
+                <table className="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Nama</th>
+                      <th scope="col">TglBooking</th>
+                      <th scope="col">Layanan</th>
+                      <th scope="col">Harga</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {booking.map((booking, index) => (
                       <tr key={booking._id}>
                         <th scope="row">{index + 1}</th>
                         <td>{booking.nama}</td>
@@ -161,18 +91,15 @@ const Booking = () => {
                         <Aksi
                           pathdetail={`/detail/${booking._id}`}
                           pathedit={`/ubah/${booking._id}`}
-                          onclick={() => {
-                            deleteBook(booking._id);
-                          }}
+                          onclick={() => deleteBook(booking._id)}
                         />
                       </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
     </div>

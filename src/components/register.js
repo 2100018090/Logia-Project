@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-const { useNavigate } = require("react-router-dom");
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [nama, setName] = useState("");
@@ -15,37 +15,46 @@ const Register = () => {
       email,
       password,
     };
+
     if (password.length < 5) {
       return Swal.fire({
         icon: "error",
-        text: "password must be 5 characters or more",
-        title: "Failed",
+        text: "Password harus terdiri dari 5 karakter atau lebih",
+        title: "Gagal",
       });
     }
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
     };
-    const response = await fetch(
-      `${window.env.REACT_API_URI}/tambahUser`,
-      requestOptions
-    );
-    const users = await response.json();
-    if (response.status === 201) {
+
+    try {
+      const response = await fetch(
+        `https://mpti-proyek.et.r.appspot.com/tambahUser`,
+        requestOptions
+      );
+
+      if (!response.ok) {
+        const errorMessage = await response.json();
+        throw new Error(errorMessage.message);
+      }
+
+      // const users = await response.json(); // Remove if not used
+
       navigate("/login");
+
       Swal.fire({
         icon: "success",
-        type: "success",
-        text: "silahkan login!",
-        title: `${users.message}`,
+        title: "Berhasil",
+        text: "Silahkan login!",
       });
-    } else {
-      navigate("/register");
+    } catch (error) {
       Swal.fire({
-        icon: "warning",
-        type: "success",
-        title: users.message,
+        icon: "error",
+        title: "Gagal mendaftar",
+        text: error.message || "Terjadi kesalahan saat mendaftar.",
       });
     }
   };
@@ -56,7 +65,13 @@ const Register = () => {
         <div className="row d-flex justify-content-center">
           <div className="col col-md-6">
             <div className="card p-3 my-5">
-            <h1 className="my-3 text-center"><img src="https://storage.googleapis.com/proyekmpti/gambar%20/gambar%208.jpg" alt="" style={{ width: '200px', height: 'auto'}}/></h1>
+              <h1 className="my-3 text-center">
+                <img
+                  src="https://storage.googleapis.com/proyekmpti/gambar%20/gambar%208.jpg"
+                  alt=""
+                  style={{ width: "200px", height: "auto" }}
+                />
+              </h1>
               <form onSubmit={register}>
                 <div className="col">
                   <div className="mb-3">
@@ -75,7 +90,7 @@ const Register = () => {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">
-                      Email address
+                      Alamat Email
                     </label>
                     <input
                       type="email"
@@ -89,7 +104,7 @@ const Register = () => {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">
-                      Password
+                      Kata Sandi
                     </label>
                     <input
                       type="password"
@@ -109,9 +124,9 @@ const Register = () => {
                   </button>
                   <div className="my-3">
                     <span>
-                      sudah punya akun ?{" "}
+                      Sudah punya akun?{" "}
                       <a href="/login" className="text-decoration-none">
-                        silahkan login
+                        Silahkan login
                       </a>
                     </span>
                   </div>

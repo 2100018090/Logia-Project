@@ -17,7 +17,7 @@ const Booking = () => {
   const getAllBooking = async () => {
 
     const user = userlogin();
-    const response = await fetch(`${process.env.REACT_APP_API_URI}/booking/${user.nama}`, {
+    const response = await fetch(`https://mpti-proyek.et.r.appspot.com/booking/${user.nama}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,

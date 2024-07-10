@@ -34,7 +34,7 @@ const TambahBuku = () => {
       body: JSON.stringify(data),
     };
     const response = await fetch(
-      `${window.env.REACT_API_URI}/books/tambah`,
+      `https://mpti-proyek.et.r.appspot.com/books/tambah`,
       requestOptions
     );
     const books = await response.json();

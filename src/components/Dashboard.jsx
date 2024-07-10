@@ -7,7 +7,7 @@ const Dashboard = () => {
     const [keyword] = useState("");
 
     const dashboard = async () => {
-      const response = await fetch(`${process.env.REACT_APP_API_URI}/dashboard`, {
+      const response = await fetch(`https://mpti-proyek.et.r.appspot.com/dashboard`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,

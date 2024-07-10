@@ -6,7 +6,7 @@ const Psikolog = () => {
     
     const [keyword] = useState("");
     const psikolog = async () => {
-        const response = await fetch(`${process.env.REACT_APP_API_URI}/psikolog`, {
+        const response = await fetch(`https://mpti-proyek.et.r.appspot.com/psikolog`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
