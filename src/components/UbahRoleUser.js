@@ -24,7 +24,7 @@ const UbahRoleUser = () => {
     };
 
     const response = await fetch(
-      `${process.env.REACT_APP_API_URI}/ubahRoleUser/${id}`,
+      `https://mpti-proyek.et.r.appspot.com/ubahRoleUser/${id}`,
       requestOptions
     );
     const success = await response.json();
@@ -109,8 +109,7 @@ const UbahRoleUser = () => {
                       onChange={(event) => setRoleUser(event.target.value)}
                     >
                       <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
+                      <option value="5">5</option>
                     </select>
                   </div>
                   <div className="mb-3">

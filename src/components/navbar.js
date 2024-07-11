@@ -42,8 +42,10 @@ const Navbar = () => {
           <nav id="navbar" class="navbar">
             <ul>
               <li><Link class="nav-link scrollto active" to="/">Beranda</Link></li>
-              <li><Link class="nav-link scrollto" to="/psikolog">Psikolog</Link></li>
-              <li><Link class="nav-link scrollto" to='/paketpsikolog'>Layanan</Link></li>
+              {/* <li><Link class="nav-link scrollto" to="/psikolog">Psikolog</Link></li> */}
+              <NavUsers nama={"Psikolog"} path={"/psikolog"}/>
+              <NavUsers nama={"Layanan"} path={"/paketpsikolog"}/>
+              {/* <li><Link class="nav-link scrollto" to='/paketpsikolog'>Layanan</Link></li> */}
               <li class="dropdown"><Link><span>Fitur</span> <i class="bi bi-chevron-down"></i></Link>
                 <ul>
                   <li><Link to='/literasi'>Literasi</Link></li>

@@ -25,6 +25,7 @@ import Riwayat from "./components/Riwayat";
 import DetailRiwayat from "./components/DetailRiwayat";
 import Chat from "./components/chat/Chat";
 import UbahPengguna from "./components/ubahPengguna";
+import Dashboard_admin from "./components/admin/Dashboard_admin";
 
 function App() {
   return (
@@ -179,6 +180,14 @@ function App() {
           element={
             <ProtectedRoutes>
               <UbahPengguna />
+            </ProtectedRoutes>
+          }
+        ></Route>
+        <Route
+          path="/dashboard_admin"
+          element={
+            <ProtectedRoutes>
+              <Dashboard_admin />
             </ProtectedRoutes>
           }
         ></Route>

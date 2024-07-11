@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Contact = () => {
     const [keyword] = useState("");
     const contact = async () => {
-        const response = await fetch(`${process.env.REACT_APP_API_URI}/contact`, {
+        const response = await fetch(`https://mpti-proyek.et.r.appspot.com/contact`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,

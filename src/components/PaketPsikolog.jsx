@@ -35,7 +35,7 @@ const PaketPsikolog = () => {
 
       // const data = await response.json();
       if (response.status === 201) {
-        navigate("/paketpsikolog");
+        navigate("/riwayat");
         Swal.fire({
           icon: "success",
           title: "Selamat Menikmati Konseling",
@@ -82,7 +82,7 @@ const PaketPsikolog = () => {
                   <li>Tanggal <input type="date" onChange={handleDateChange} /></li>
                 </ul>
                 <div className="btn-wrap">
-                  <button className="btn-buy" onClick={() => handleBooking("Paket 1", "Muhamad Febrian Al-Amin, S.Psi, M.Psi, Psikolog", "175.000")}>Booking Set</button>
+                  <button className="btn-buy" onClick={() => handleBooking("Paket 1", "Muhamad Febrian Al-Amin, S.Psi, M.Psi, Psikolog", "175.000")}>Booking</button>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ const PaketPsikolog = () => {
                   <li>Tanggal <input type="date" onChange={handleDateChange} /></li>
                 </ul>
                 <div className="btn-wrap">
-                  <button className="btn-buy" onClick={() => handleBooking("Paket 2", "Diana Zumrotus Sa'adah, M.Psi Psikolog", "200.000")}>Booking Set</button>
+                  <button className="btn-buy" onClick={() => handleBooking("Paket 2", "Diana Zumrotus Sa'adah, M.Psi Psikolog", "200.000")}>Booking</button>
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ const PaketPsikolog = () => {
                   <li>Tanggal <input type="date" onChange={handleDateChange} /></li>
                 </ul>
                 <div className="btn-wrap">
-                  <button className="btn-buy" onClick={() => handleBooking("Paket 3", "Putri Rahmalia, M.Psi., Psikolog", "250.000")}>Booking Set</button>
+                  <button className="btn-buy" onClick={() => handleBooking("Paket 3", "Putri Rahmalia, M.Psi., Psikolog", "250.000")}>Booking</button>
                 </div>
               </div>
             </div>

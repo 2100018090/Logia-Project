@@ -46,8 +46,15 @@ const Login = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("userLogin", JSON.stringify(user));
 
-      navigate("/");
-      
+      if (user.role === "5") {
+        navigate("/");
+      } else if (user.role === "1") {
+        navigate("/dashboard_admin");
+      } else {
+        // Default navigation if role is not 1 or 5
+        navigate("/login");
+      }
+
       Swal.fire({
         icon: "success",
         title: message,

@@ -43,7 +43,7 @@ const ChangePassword = () => {
     };
 
     const response = await fetch(
-      `${process.env.REACT_APP_API_URI}/change-password/${id.id}/${token.token}`,
+      `https://mpti-proyek.et.r.appspot.com/change-password/${id.id}/${token.token}`,
       requestOptions
     );
     const { message } = await response.json();

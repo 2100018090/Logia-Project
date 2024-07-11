@@ -33,7 +33,7 @@ const Users = () => {
       onClick: (event) => event.preventDefault(),
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${process.env.REACT_APP_API_URI}/hapusUser/${id}`, {
+        fetch(`https://mpti-proyek.et.r.appspot.com/hapusUser/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Users = () => {
   useEffect(() => {
     const searchUser = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URI}/searchUser?nama=${keyword}`,
+        `https://mpti-proyek.et.r.appspot.com/searchUser?nama=${keyword}`,
         {
           headers: {
             "Content-Type": "application/json",

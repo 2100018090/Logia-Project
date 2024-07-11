@@ -8,7 +8,7 @@ const Booking = () => {
   const [sortJudul] = useState("");
 
   const getAllSemuaBooking = async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URI}/booking`, {
+    const response = await fetch(`https://mpti-proyek.et.r.appspot.com/booking`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -30,7 +30,7 @@ const Booking = () => {
       onClick: (event) => event.preventDefault(),
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${process.env.REACT_APP_API_URI}/booking/hapus/${id}`, {
+        fetch(`https://mpti-proyek.et.r.appspot.com/booking/hapus/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

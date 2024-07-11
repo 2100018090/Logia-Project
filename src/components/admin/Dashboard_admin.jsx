@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./navbar";
-
+import Navbar from "../navbar";
 import { Link } from "react-router-dom";
 
-const Dashboard = () => {
+const Dashboard_admin = () => {
     const [keyword] = useState("");
 
     const dashboard = async () => {
@@ -39,7 +38,7 @@ const Dashboard = () => {
               <h1 data-aos="fade-up">Kesehatan Mental untuk Kualitas Hidup</h1> 
               <h2 data-aos="fade-up" data-aos-delay="400">Mulailah perjalanan Anda menuju kesehatan mental yang lebih baik bersama kami.</h2>
               <div data-aos="fade-up" data-aos-delay="800">
-                <Link class="btn-get-started scrollto" to="/paketpsikolog">Booking Konseling</Link>
+                {/* <Link class="btn-get-started scrollto" to="/paketpsikolog">Booking Konseling</Link> */}
                 {/* <button class="btn-get-started scrollto">Booking Konseling</button> */}
               </div>
             </div>
@@ -181,4 +180,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard_admin;
