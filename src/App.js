@@ -25,7 +25,8 @@ import Riwayat from "./components/Riwayat";
 import DetailRiwayat from "./components/DetailRiwayat";
 import Chat from "./components/chat/Chat";
 import UbahPengguna from "./components/ubahPengguna";
-import Dashboard_admin from "./components/admin/Dashboard_admin";
+import Dashboard_Admin from "./components/admin/Dashboard_Admin";
+
 
 function App() {
   return (
@@ -187,7 +188,7 @@ function App() {
           path="/dashboard_admin"
           element={
             <ProtectedRoutes>
-              <Dashboard_admin />
+              <Dashboard_Admin />
             </ProtectedRoutes>
           }
         ></Route>

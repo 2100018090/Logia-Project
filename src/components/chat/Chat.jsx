@@ -12,7 +12,7 @@ const Chat = () => {
     // Fungsi untuk mengambil pesan
     const fetchMessages = async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URI}/getMessages`);
+            const response = await axios.get(`https://mpti-proyek.et.r.appspot.com/getMessages`);
             setMessages(response.data);
         } catch (error) {
             console.error('Error fetching messages:', error);
@@ -34,7 +34,7 @@ const Chat = () => {
         if (newMessage.trim() === "") return;
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URI}/addmessage`, {
+            const response = await axios.post(`https://mpti-proyek.et.r.appspot.com/addmessage`, {
                 user: user.nama,  // Gunakan nama user dari userlogin
                 text: newMessage
             });

@@ -14,7 +14,7 @@ const Vedio = () => {
       
               <div class="section-title" data-aos="fade-up">
                 <h2>Video</h2>
-                <p>Bacalah dan Temui Buku di Logia Project: Ahli  Kesehatan Mental Anda</p>
+                <p>Tontonlah dan Temui Video di Logia Project: Ahli  Kesehatan Mental Anda</p>
               </div>
       
               <div class="row" data-aos="fade-up" data-aos-delay="200">
@@ -37,7 +37,7 @@ const Vedio = () => {
                       <h4>  Skizofrenia</h4>
                       {/* <p>Vedio Boboboy</p> */}
                       <div class="portfolio-links">
-                      <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20itu%20Skizofrenia--(1080p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Vedio"><i class='bx bx-movie-play'></i></a>
+                      <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20itu%20Skizofrenia--(1080p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Video"><i class='bx bx-movie-play'></i></a>
                       </div>
                     </div>
                   </div>
@@ -50,7 +50,7 @@ const Vedio = () => {
                       <h4>Traumatic Stress Disorder</h4>
                       {/* <p>Web</p> */}
                       <div class="portfolio-links">
-                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20itu%20Post-Traumatic%20Stress%20Disorder%20(PTSD)%20_-(1080p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Vedio"><i class='bx bx-movie-play'></i></a>
+                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20itu%20Post-Traumatic%20Stress%20Disorder%20(PTSD)%20_-(1080p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Video"><i class='bx bx-movie-play'></i></a>
 
                       </div>
                     </div>
@@ -64,7 +64,7 @@ const Vedio = () => {
                       <h4>Gangguan Bipolar</h4>
                       {/* <p>App</p> */}
                       <div class="portfolio-links">
-                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20Itu%20Gangguan%20Bipolar--(720p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Vedio"><i class='bx bx-movie-play'></i></a>
+                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20Itu%20Gangguan%20Bipolar--(720p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Video"><i class='bx bx-movie-play'></i></a>
                       </div>
                     </div>
                   </div>
@@ -76,7 +76,7 @@ const Vedio = () => {
                     <div class="portfolio-info">
                       <h4>Depresi</h4>
                       <div class="portfolio-links">
-                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20itu%20Depresi--(720p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Vedio"><i class='bx bx-movie-play'></i></a>
+                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20itu%20Depresi--(720p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Video"><i class='bx bx-movie-play'></i></a>
                       </div>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ const Vedio = () => {
                     <div class="portfolio-info">
                       <h4>Anxiety Disorder</h4>
                       <div class="portfolio-links">
-                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20itu%20Anxiety%20Disorder_-(1080p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Vedio"><i class='bx bx-movie-play'></i></a>
+                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20itu%20Anxiety%20Disorder_-(1080p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Video"><i class='bx bx-movie-play'></i></a>
                       </div>
                     </div>
                   </div>
@@ -100,7 +100,7 @@ const Vedio = () => {
                     <div class="portfolio-info">
                       <h4>ADHD</h4>
                       <div class="portfolio-links">
-                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20Itu%20ADHD_-(1080p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Vedio"><i class='bx bx-movie-play'></i></a>
+                        <a href="https://storage.googleapis.com/proyekmpti/Vedio/Y2meta.app-Apa%20Itu%20ADHD_-(1080p).mp4" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Buka Video"><i class='bx bx-movie-play'></i></a>
                       </div>
                     </div>
                   </div>
