@@ -58,7 +58,7 @@ const Booking = () => {
             <div className="bg-light rounded-3">
               <div className="row mx-5"></div>
               <div className="col-lg-6 my-3 justify-content-center d-block">
-                <div className="input-group mb-3 ">
+                {/* <div className="input-group mb-3 ">
                   <input
                     type="text"
                     className="form-control mx-5"
@@ -67,7 +67,7 @@ const Booking = () => {
                     value={keyword}
                     onChange={(event) => setKeyword(event.target.value)}
                   />
-                </div>
+                </div> */}
               </div>
               <div className="table table-responsive p-5 mb-4 bg-blue-200 rounded-3">
                 <table className="table table-hover">
