@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-// import userlogin from "./userlogin";
+import userlogin from "./userlogin";
 import NavUser from "./NavUser";
 import NavUsers from "./NavUsers";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  // const user = userlogin();
+  const user = userlogin();
 
   const onLogout = () => {
     Swal.fire({
@@ -23,54 +23,100 @@ const Navbar = () => {
         Swal.fire("Anda Berhasil Keluar Silahkan Kembali!", "", "success");
         localStorage.clear("userLogin");
         localStorage.clear("token");
-        navigate("/login");
+        navigate("/");
       }
     });
   };
+
+  const onLogin = () => {
+    Swal.fire("Silahkan Login terlebih dahulu!", "", "success");
+    navigate("/login");
+  };
+
   return (
-
-        <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
-
-          <div class="logo">
-            <img src="https://storage.googleapis.com/proyekmpti/gambar%20/gambar%208.jpg" alt=""  />
-            {/* <h1><Link to='/detailusers/:id'>{user.nama}</Link></h1> */}
-            {/* <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>--> */}
-          </div>
-
-          <nav id="navbar" class="navbar">
-            <ul>
-              <li><Link class="nav-link scrollto active" to="/">Beranda</Link></li>
-              {/* <li><Link class="nav-link scrollto" to="/psikolog">Psikolog</Link></li> */}
-              <NavUsers nama={"Psikolog"} path={"/psikolog"}/>
-              <NavUsers nama={"Layanan"} path={"/paketpsikolog"}/>
-              {/* <li><Link class="nav-link scrollto" to='/paketpsikolog'>Layanan</Link></li> */}
-              <li class="dropdown"><Link><span>Fitur</span> <i class="bi bi-chevron-down"></i></Link>
-                <ul>
-                  <li><Link to='/literasi'>Literasi</Link></li>
-                  <li><Link to='/vedio'>Video</Link></li>
-                  <li><Link to='/chat'>Diskusi</Link></li>
-                </ul>
-              </li>
-              <NavUsers nama={"Riwayat"} path={"/riwayat"}/>
-              <NavUser nama={"Users"} path={"/users"} />
-              <NavUser nama={"Booking"} path={"/booking"} />
-              <li class="dropdown"><Link><span>Pengaturan</span> <i class="bi bi-chevron-down"></i></Link>
-                <ul>
-                  <li><Link to='/detailusers/:id'>Profil</Link></li>
-                  <li><Link to='/contact'>Contact</Link></li>
-                </ul>
-              </li>
-              <li><button class="getstarted scrollto" onClick={onLogout}>Keluar</button></li>
-              {/* <li><a class="getstarted scrollto" href="#about">Log Out</a></li> */}
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav>
-          {/* <!-- .navbar --> */}
-
+    <header id="header" className="fixed-top d-flex align-items-center">
+      <div className="container d-flex align-items-center justify-content-between">
+        <div className="logo">
+          <img
+            src="https://storage.googleapis.com/proyekmpti/gambar%20/gambar%208.jpg"
+            alt=""
+          />
+          {/* <h1><Link to='/detailusers/:id'>{user.nama}</Link></h1> */}
+          {/* Uncomment below if you prefer to use an image logo */}
+          {/* <a href="index.html"><img src="assets/img/logo.png" alt="" className="img-fluid"></a> */}
         </div>
-      </header>
+
+        <nav id="navbar" className="navbar">
+          <ul>
+            <li>
+              <Link className="nav-link scrollto active" to="/">
+                Beranda
+              </Link>
+            </li>
+                <Link to="/psikolog">Psikolog</Link>
+              <NavUsers nama="Layanan" path="/paketpsikolog" />
+            <li className="dropdown">
+              <Link to="#">
+                <span>Fitur</span> <i className="bi bi-chevron-down"></i>
+              </Link>
+              <ul>
+                <li>
+                  <Link to="/literasi">Literasi</Link>
+                </li>
+                <li>
+                  <Link to="/vedio">Video</Link>
+                </li>
+                {user && (
+                  <li>
+                    <Link to="/chat">Diskusi</Link>
+                  </li>
+                )}
+              </ul>
+            </li>
+            <NavUsers nama="Riwayat" path="/riwayat" />
+            <NavUser nama="Users" path="/users" />
+            <NavUser nama="Booking" path="/booking" />
+            {user ? (
+              <li className="dropdown">
+                <Link to="#">
+                  <span>Pengaturan</span> <i className="bi bi-chevron-down"></i>
+                </Link>
+                <ul>
+                  <li>
+                    <Link to="/detailusers/:id">Profil</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact">Kontak</Link>
+                  </li>
+                </ul>
+              </li>
+            ) : (
+              <li>
+                <Link className="nav-link scrollto" to="/contact">
+                  Kontak
+                </Link>
+              </li>
+            )}
+            {user ? (
+              <li>
+                <button className="getstarted scrollto" onClick={onLogout}>
+                  Keluar
+                </button>
+              </li>
+            ) : (
+              <li>
+                <button className="getstarted scrollto" onClick={onLogin}>
+                  Masuk
+                </button>
+              </li>
+            )}
+          </ul>
+          <i className="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        {/* .navbar */}
+      </div>
+    </header>
   );
 };
+
 export default Navbar;

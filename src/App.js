@@ -31,53 +31,29 @@ import Dashboard_Admin from "./components/admin/Dashboard_Admin";
 function App() {
   return (
     <BrowserRouter>
-      {/* <UserContext.Provider value={{ user }}> */}
       <Routes>
-        <Route path="*" element={<PageError />}></Route>
+        <Route path="*" element={<PageError />} />
         {/* public routes */}
-        <Route
-          path="/contact"
-          element={
-            <ProtectedRoutes>
-              <Contact />
-            </ProtectedRoutes>
-          }
-        ></Route>
-        <Route
-          path="/paketpsikolog"
-          element={
-            <ProtectedRoutes>
-              <PaketPsikolog />
-            </ProtectedRoutes>
-          }
-        >
-          {/* <Route path="outlet" element={<TestOutlet />}></Route> */}
-        </Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/logout" element={<Login />}></Route>
-        <Route path="/profil" element={<ProfilDetail />}></Route>
-        <Route
-          path="/change-password/:id/:token"
-          element={<ChangePassword />}
-        ></Route>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Login />} />
+        <Route path="/profil" element={<ProfilDetail />} />
+        <Route path="/change-password/:id/:token" element={<ChangePassword />} />
+        <Route path="/psikolog" element={<Psikolog />}/>
+        <Route path="/vedio" element={<Vedio />}/>
+        <Route path="/literasi" element={<Literasi />}/>
 
         {/* protected routes */}
-        <Route
-          path="/"
-          element={
-            <ProtectedRoutes>
-              <Dashboard />
-            </ProtectedRoutes>
-          }
-        ></Route>
-        <Route
-          path="/psikolog"
-          element={
-            <ProtectedRoutes>
-              <Psikolog />
-            </ProtectedRoutes>
-          }
-        ></Route>
+        <Route path="/paketpsikolog" 
+        element={
+          <ProtectedRoutes>
+            <PageUser>
+            <PaketPsikolog />
+            </PageUser>
+          </ProtectedRoutes>
+        } 
+        />
         <Route
           path="/users"
           element={
@@ -87,7 +63,7 @@ function App() {
               </PageUser>
             </ProtectedRoutes>
           }
-        ></Route>
+        />
         <Route
           path="/tambah"
           element={
@@ -97,13 +73,10 @@ function App() {
               </ProtectedContent>
             </ProtectedRoutes>
           }
-        ></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-        <Route
-          path="/reset-password/:id/:token"
-          element={<ChangePassword />}
-        ></Route>
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:id/:token" element={<ChangePassword />} />
         <Route
           path="/ubahRoleUser/:id"
           element={
@@ -111,23 +84,7 @@ function App() {
               <UbahRoleUser />
             </ProtectedRoutes>
           }
-        ></Route>
-        <Route
-          path="/literasi"
-          element={
-            <ProtectedRoutes>
-              <Literasi />
-            </ProtectedRoutes>
-          }
-        ></Route>
-        <Route
-          path="/vedio"
-          element={
-            <ProtectedRoutes>
-              <Vedio />
-            </ProtectedRoutes>
-          }
-        ></Route>
+        />
         <Route
           path="/detailusers/:id"
           element={
@@ -135,7 +92,7 @@ function App() {
               <DetailUsers />
             </ProtectedRoutes>
           }
-        ></Route>
+        />
         <Route
           path="/booking"
           element={
@@ -143,7 +100,7 @@ function App() {
               <Booking />
             </ProtectedRoutes>
           }
-        ></Route>
+        />
         <Route
           path="/detail/:id"
           element={
@@ -151,7 +108,7 @@ function App() {
               <DetailBooking />
             </ProtectedRoutes>
           }
-        ></Route>
+        />
         <Route
           path="/riwayat"
           element={
@@ -159,7 +116,7 @@ function App() {
               <Riwayat />
             </ProtectedRoutes>
           }
-        ></Route>
+        />
         <Route
           path="/detailRiwayat/:id"
           element={
@@ -167,7 +124,7 @@ function App() {
               <DetailRiwayat />
             </ProtectedRoutes>
           }
-        ></Route>
+        />
         <Route
           path="/chat"
           element={
@@ -175,7 +132,7 @@ function App() {
               <Chat />
             </ProtectedRoutes>
           }
-        ></Route>
+        />
         <Route
           path="/ubah/:id"
           element={
@@ -183,7 +140,7 @@ function App() {
               <UbahPengguna />
             </ProtectedRoutes>
           }
-        ></Route>
+        />
         <Route
           path="/dashboard_admin"
           element={
@@ -191,9 +148,8 @@ function App() {
               <Dashboard_Admin />
             </ProtectedRoutes>
           }
-        ></Route>
+        />
       </Routes>
-      {/* </UserContext.Provider> */}
     </BrowserRouter>
   );
 }

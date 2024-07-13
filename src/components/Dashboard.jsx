@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./navbar";
-
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
     const [keyword] = useState("");
+    const navigate = useNavigate();
 
     const dashboard = async () => {
       const response = await fetch(`https://mpti-proyek.et.r.appspot.com/dashboard`, {
@@ -25,6 +26,16 @@ const Dashboard = () => {
         dashboard();  
       }
     }, [keyword]); // Menambahkan keyword sebagai dependensi
+
+    const handleBookingKonseling = () => {
+      const userLogin = localStorage.getItem("userLogin");
+      if (!userLogin) {
+        Swal.fire("Silahkan Login terlebih dahulu!", "", "success");
+        navigate("/login");
+      } else {
+        navigate("/paketpsikolog");
+      }
+    };
     
 
   return (
@@ -39,7 +50,7 @@ const Dashboard = () => {
               <h1 data-aos="fade-up">Kesehatan Mental untuk Kualitas Hidup</h1> 
               <h2 data-aos="fade-up" data-aos-delay="400">Mulailah perjalanan Anda menuju kesehatan mental yang lebih baik bersama kami.</h2>
               <div data-aos="fade-up" data-aos-delay="800">
-                <Link class="btn-get-started scrollto" to="/paketpsikolog">Booking Konseling</Link>
+                <button className="btn-get-started scrollto" onClick={handleBookingKonseling}>Booking Konseling</button>
                 {/* <button class="btn-get-started scrollto">Booking Konseling</button> */}
               </div>
             </div>

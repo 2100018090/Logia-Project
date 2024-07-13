@@ -125,6 +125,12 @@ const Login = () => {
                           Daftar
                         </a>
                       </span>
+                      <span className="d-block my-2">
+                        Kembali ke Beranda{" "}
+                        <a href="/" className="text-decoration-none">
+                          Kembali
+                        </a>
+                      </span>
                     </div>
                   </div>
                 </form>

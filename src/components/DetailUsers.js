@@ -16,7 +16,7 @@ const DetailUsers = () => {
           <div className="row d-flex justify-content-center">
             <div className="col col-md-8">
               <div className="card p-3 my-5">
-                <h2 className="text-center">Profil Users</h2>
+                <h2 className="text-center">Profil Pengguna</h2>
                 {/* <div className="row">
                   <div className="mb-3 col-5">
                     <font size={5}>Kode Barcode</font>
