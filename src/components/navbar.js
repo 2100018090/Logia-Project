@@ -29,10 +29,16 @@ const Navbar = () => {
   };
 
   const onLogin = () => {
-    Swal.fire("Silahkan Login terlebih dahulu!", "", "success");
-    navigate("/login");
+    Swal.fire({
+      icon: 'warning',
+      title: 'Maaf',
+      text: 'Silahkan Login terlebih dahulu!',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      navigate("/login");
+    });
   };
-
+  
   return (
     <header id="header" className="fixed-top d-flex align-items-center">
       <div className="container d-flex align-items-center justify-content-between">

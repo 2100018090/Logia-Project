@@ -30,11 +30,18 @@ const Dashboard = () => {
     const handleBookingKonseling = () => {
       const userLogin = localStorage.getItem("userLogin");
       if (!userLogin) {
-        Swal.fire("Silahkan Login terlebih dahulu!", "", "success");
-        navigate("/login");
+        Swal.fire({
+          icon: 'warning',
+          title: 'Maaf',
+          text: 'Silahkan Login terlebih dahulu!',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          navigate("/login");
+        });
       } else {
         navigate("/paketpsikolog");
       }
+      
     };
     
 

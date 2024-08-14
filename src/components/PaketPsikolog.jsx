@@ -8,11 +8,11 @@ const PaketPsikolog = () => {
   const [bookingMessage, setBookingMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleBooking = async (paket, namaPsikolog, harga) => {
+  const handleBooking = async (paket, namaPsikolog, harga, psikologEmail) => {
     const userData = JSON.parse(localStorage.getItem("userLogin")); // Mengambil dan parsing data pengguna dari localStorage
 
-    if (!userData || !userData.nama) {
-      setBookingMessage('Gagal melakukan booking: Nama pengguna tidak ditemukan di localStorage');
+    if (!userData || !userData.nama || !userData.email) {
+      setBookingMessage('Gagal melakukan booking: Nama atau email pengguna tidak ditemukan di localStorage');
       return;
     }
 
@@ -25,7 +25,9 @@ const PaketPsikolog = () => {
         },
         body: JSON.stringify({
           nama: userData.nama, // Menggunakan nama pengguna dari objek userData
+          userEmail: userData.email, // Menggunakan email pengguna dari objek userData
           namaPsikolog, // Nama psikolog yang dipilih
+          psikologEmail, // Email psikolog berdasarkan paket yang dipilih
           tglBooking: new Date().toISOString(), // Tanggal saat ini
           layanan: paket, // Paket yang dipilih
           tglKonseling: tglKonseling, // Tanggal konseling yang sudah diisi
@@ -33,7 +35,6 @@ const PaketPsikolog = () => {
         })
       });
 
-      // const data = await response.json();
       if (response.status === 201) {
         navigate("/riwayat");
         Swal.fire({
@@ -57,7 +58,6 @@ const PaketPsikolog = () => {
     setTglKonseling(event.target.value);
   };
 
-  
   return (
     <div>
       <Navbar />
@@ -66,7 +66,7 @@ const PaketPsikolog = () => {
         <div className="container">
           <div className="section-title">
             <h2>Layanan</h2>
-            <p>Temukan layanan psikolog yang sesuai dengan kebutuhan ada di Logia Project</p>
+            <p>Temukan layanan psikolog yang sesuai dengan kebutuhan anda di Logia Project</p>
           </div>
 
           <div className="row">
@@ -82,7 +82,17 @@ const PaketPsikolog = () => {
                   <li>Tanggal <input type="date" onChange={handleDateChange} /></li>
                 </ul>
                 <div className="btn-wrap">
-                  <button className="btn-buy" onClick={() => handleBooking("Paket 1", "Muhamad Febrian Al-Amin, S.Psi, M.Psi, Psikolog", "175.000")}>Booking</button>
+                  <button 
+                    className="btn-buy" 
+                    onClick={() => handleBooking(
+                      "Paket 1", 
+                      "Muhamad Febrian Al-Amin, S.Psi, M.Psi, Psikolog", 
+                      "175000", 
+                      "mfebrianalamin@gmail.com"
+                    )}
+                  >
+                    Booking
+                  </button>
                 </div>
               </div>
             </div>
@@ -99,7 +109,17 @@ const PaketPsikolog = () => {
                   <li>Tanggal <input type="date" onChange={handleDateChange} /></li>
                 </ul>
                 <div className="btn-wrap">
-                  <button className="btn-buy" onClick={() => handleBooking("Paket 2", "Diana Zumrotus Sa'adah, M.Psi Psikolog", "200.000")}>Booking</button>
+                  <button 
+                    className="btn-buy" 
+                    onClick={() => handleBooking(
+                      "Paket 2", 
+                      "Diana Zumrotus Sa'adah, M.Psi Psikolog", 
+                      "200000", 
+                      "saadahdiana@gmail.com"
+                    )}
+                  >
+                    Booking
+                  </button>
                 </div>
               </div>
             </div>
@@ -107,7 +127,6 @@ const PaketPsikolog = () => {
             <div className="col-lg-4 col-md-6 mt-4 mt-lg-0">
               <div className="box" data-aos="zoom-in-left" data-aos-delay="200">
                 <h3>Paket 3</h3>
-
                 <h4><sup>Layanan Konseling Psikologi</sup><span></span></h4>
                 <ul>
                   <li>Konseling Individual</li>
@@ -117,7 +136,17 @@ const PaketPsikolog = () => {
                   <li>Tanggal <input type="date" onChange={handleDateChange} /></li>
                 </ul>
                 <div className="btn-wrap">
-                  <button className="btn-buy" onClick={() => handleBooking("Paket 3", "Putri Rahmalia, M.Psi., Psikolog", "250.000")}>Booking</button>
+                  <button 
+                    className="btn-buy" 
+                    onClick={() => handleBooking(
+                      "Paket 3", 
+                      "Putri Rahmalia, M.Psi., Psikolog", 
+                      "250000", 
+                      "logiaprojectt@gmail.com"
+                    )}
+                  >
+                    Booking
+                  </button>
                 </div>
               </div>
             </div>

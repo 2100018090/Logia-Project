@@ -3,7 +3,7 @@ import Navbar from "./navbar";
 import { Link, useParams } from "react-router-dom";
 
 const DetailRiwayat = () => {
-  const [booking, getBooking] = useState("");
+  const [booking, getBooking] = useState({});
   const { id } = useParams();
 
   const getBookingById = async () => {
@@ -13,19 +13,23 @@ const DetailRiwayat = () => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    const { booking } = await response.json();
-    getBooking(booking);
+
+    if (response.ok) {
+      const data = await response.json();
+      getBooking(data.booking);
+    } else {
+      console.error("Failed to fetch booking details:", response.status, response.statusText);
+    }
   };
 
   useEffect(() => {
     getBookingById();
-  });
+  }, []);
 
-  console.log();
   return (
     <div>
       <Navbar />
-      <div className="min-vh-100 bg-secondary bg-opacity-50"  id="users">
+      <div className="min-vh-100 bg-secondary bg-opacity-50" id="users">
         <div className="container">
           <div className="row d-flex justify-content-center">
             <div className="col col-md-8">
@@ -75,15 +79,6 @@ const DetailRiwayat = () => {
                     <font size={5}>{booking.layanan}</font>
                   </div>
                 </div>
-                
-                {/* <div className="row">
-                  <div className="mb-3 col-3">
-                    <font size={5}>Birthdate </font>
-                  </div>
-                  <div className="mb-3 col-8">
-                    <font size={5}>{`${d} ${monthNames[m - 1]} ${y}`}</font>
-                  </div>
-                </div> */}
                 <div className="row">
                   <div className="mb-3 col-5">
                     <font size={5}>tglKonseling</font>
@@ -97,7 +92,7 @@ const DetailRiwayat = () => {
                 </div>
                 <div className="row">
                   <div className="mb-3 col-5">
-                    <font size={5}>namaPsikolog</font>
+                    <font size={5}>Nama Psikolog</font>
                   </div>
                   <div className="mb-3 col-1">
                     <font size={5}>: </font>
@@ -115,6 +110,28 @@ const DetailRiwayat = () => {
                   </div>
                   <div className="mb-3 col-6">
                     <font size={5}>{booking.harga}</font>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="mb-3 col-5">
+                    <font size={5}>User Email</font>
+                  </div>
+                  <div className="mb-3 col-1">
+                    <font size={5}>: </font>
+                  </div>
+                  <div className="mb-3 col-6">
+                    <font size={5}>{booking.userEmail}</font>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="mb-3 col-5">
+                    <font size={5}>Psikolog Email</font>
+                  </div>
+                  <div className="mb-3 col-1">
+                    <font size={5}>: </font>
+                  </div>
+                  <div className="mb-3 col-6">
+                    <font size={5}>{booking.psikologEmail}</font>
                   </div>
                 </div>
                 <div className="my-3">
