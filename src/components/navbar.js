@@ -82,6 +82,7 @@ const Navbar = () => {
             <NavUsers nama="Riwayat" path="/riwayat" />
             <NavUser nama="Users" path="/users" />
             <NavUser nama="Booking" path="/booking" />
+            <NavUser nama="DetailKontak" path="/contact_admin" />
             {user ? (
               <li className="dropdown">
                 <Link to="#">

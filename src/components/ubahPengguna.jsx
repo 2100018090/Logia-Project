@@ -58,7 +58,7 @@ const UbahPengguna = () => {
 
   const getBookingById = useCallback(async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_URI}/booking/id/${id}`,
+      `https://mpti-proyek.et.r.appspot.com/booking/id/${id}`,
       {
         headers: {
           "Content-Type": "application/json",

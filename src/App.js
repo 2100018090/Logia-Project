@@ -26,6 +26,8 @@ import DetailRiwayat from "./components/DetailRiwayat";
 import Chat from "./components/chat/Chat";
 import UbahPengguna from "./components/ubahPengguna";
 import Dashboard_Admin from "./components/admin/Dashboard_Admin";
+import ContactAdmin from "./components/admin/ContactAdmin";
+import EditContact from "./components/admin/EditContact";
 
 
 function App() {
@@ -146,6 +148,22 @@ function App() {
           element={
             <ProtectedRoutes>
               <Dashboard_Admin />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/contact_admin"
+          element={
+            <ProtectedRoutes>
+              <ContactAdmin />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/editcontact/:id"
+          element={
+            <ProtectedRoutes>
+              <EditContact />
             </ProtectedRoutes>
           }
         />
